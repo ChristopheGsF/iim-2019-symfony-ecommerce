@@ -1,0 +1,13 @@
+fos_user:
+  db_driver: orm # other valid values are 'mongodb' and 'couchdb'
+  firewall_name: main
+  user_class: App\Entity\User
+  from_email:
+    address: "test@test.fr"
+    sender_name: "Test"
+  group:
+    group_class:   Application\Sonata\UserBundle\Entity\Group
+    group_manager: sonata.user.orm.group_manager
+  service:
+      mailer: fos_user.mailer.twig_swift
+      user_manager: sonata.user.orm.user_manager
